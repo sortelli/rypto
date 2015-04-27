@@ -12,8 +12,8 @@ module Rypto
 
       if krypto_cards.nil?
         cards = Deck.new.deal_cards
-        @krypto_cards = @cards[0, 5]
-        @target_card  = @cards[5]
+        @krypto_cards = cards[0, 5]
+        @target_card  = cards[5]
       else
         unless krypto_cards.is_a?(Array) and krypto_cards.size == 5
           raise ArgumentError, "Expected first argument to be an array of 5 integers"

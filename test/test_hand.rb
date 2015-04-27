@@ -7,6 +7,9 @@ class TestHand < Minitest::Test
     hand = Rypto::Hand.new krypto_cards, target_card
     assert_equal krypto_cards, hand.krypto_cards
     assert_equal target_card,  hand.target_card
+
+    assert_instance_of Array,  Rypto::Hand.new.krypto_cards
+    assert_instance_of Fixnum, Rypto::Hand.new.target_card
   end
 
   def test_bad_arguments
