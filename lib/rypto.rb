@@ -1,4 +1,6 @@
 require "rypto/version"
+require "rypto/solution"
+require "rypto/brute_force_solver"
 
 module Rypto
   class Hand
@@ -26,6 +28,10 @@ module Rypto
         @krypto_cards = krypto_cards
         @target_card  = target_card
       end
+    end
+
+    def solve
+      BruteForceSolver.new(self).solve
     end
   end
 
