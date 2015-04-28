@@ -1,6 +1,8 @@
 # Rypto
 
 [![Build Status](https://travis-ci.org/sortelli/rypto.svg?branch=develop)](https://travis-ci.org/sortelli/rypto)
+[![Dependency Status](https://gemnasium.com/sortelli/rypto.svg)](https://gemnasium.com/sortelli/rypto)
+
 
 A ruby gem library that provides an API for solving hands from the
 Krypto card game.  Read more about
