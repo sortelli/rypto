@@ -1,5 +1,6 @@
 # Rypto
 
+[![Gem Version](https://badge.fury.io/rb/rypto.svg)](http://badge.fury.io/rb/rypto)
 [![Build Status](https://travis-ci.org/sortelli/rypto.svg?branch=develop)](https://travis-ci.org/sortelli/rypto)
 [![Dependency Status](https://gemnasium.com/sortelli/rypto.svg)](https://gemnasium.com/sortelli/rypto)
 
