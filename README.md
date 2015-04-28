@@ -35,6 +35,8 @@ inspecting the possible solutions to the hand.
 require 'rypto'
 
 deck = Rypto::Deck.new
+
+#Deal a random hand from the deck (removes dealt cards from deck)
 hand = deck.deal_hand
 
 #Print results in infix notation
@@ -44,16 +46,16 @@ puts hand.solve.infix
 This will output:
 
 ```
-((((19 + 4) - 23) * 14) + 8) = 8
-((((19 + 4) - 23) / 14) + 8) = 8
-(19 - (((8 / 4) + 23) - 14)) = 8
-(19 - ((8 / 4) + (23 - 14))) = 8
-((19 - (8 / 4)) - (23 - 14)) = 8
-(((19 - (8 / 4)) + 14) - 23) = 8
-((19 - ((8 + 23) - 14)) * 4) = 8
-((19 - (8 + (23 - 14))) * 4) = 8
-(((19 - 8) - (23 - 14)) * 4) = 8
-((((19 - 8) + 14) - 23) * 4) = 8
+(19 + 4 - 23) * 14 + 8 = 8
+(19 + 4 - 23) / 14 + 8 = 8
+(19 - 23 - 4) * 14 + 8 = 8
+(19 - 23 - 4) / 14 + 8 = 8
+(19 - 23 - 14 + 8) * 4 = 8
+(19 - 23 - 14 - 8) * 4 = 8
+(19 - 23 - 14 - 8) * 4 = 8
+19 - 23 - 14 - 8 / 4 = 8
+19 - 23 - 14 + 8 / 4 = 8
+19 - 23 - 14 - 8 / 4 = 8
 ...results truncated...
 ```
 
