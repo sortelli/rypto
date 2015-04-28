@@ -91,6 +91,10 @@ This will output:
 ...results truncated...
 ```
 
+## Documentation
+
+[API Documentation](http://www.rubydoc.info/gems/rypto/0.1.0)
+
 ## License
 
 Copyright (c) 2015 Joe Sortelli
