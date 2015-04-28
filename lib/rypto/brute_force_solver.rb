@@ -1,14 +1,18 @@
 require "rypto"
 
 module Rypto
+  # Used internally by {Rypto::Hand} to generate solutions
   class BruteForceSolver
     attr_reader :hand
 
+    # @private
     def initialize(hand)
       @hand     = hand
       @solution = Solution.new(@hand.target_card)
     end
 
+    # Generate solutions to a {Rypto::Hand}
+    # @private
     def solve
       ops = %w{+ - * /}
 

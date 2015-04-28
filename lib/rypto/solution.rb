@@ -1,18 +1,24 @@
 require "rypto"
 
 module Rypto
+  # Solution returned by {Rypto::Hand#solve}
   class Solution
+    # @private
     def initialize(target)
       @target    = target
       @solutions = []
     end
 
+    # Array of all solutions in postfix notation.
+    # @return [Array<String>]
     def postfix
       @solutions.map do |solution|
         '%s = %d' % [solution.join(" "), @target]
       end
     end
 
+    # Array of all solutions in infix notation.
+    # @return [Array<String>]
     def infix
       @solutions.map do |solution|
         stack = []
@@ -31,6 +37,8 @@ module Rypto
       end
     end
 
+    # Add solution to list of possible solutions
+    # @private 
     def push(solution)
       @solutions << solution
     end
