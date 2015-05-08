@@ -1,4 +1,4 @@
 module Rypto
   # Rypto library version
-  VERSION = "0.2.0.rc1"
+  VERSION = "0.1.1"
 end
