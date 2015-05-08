@@ -25,15 +25,20 @@ module Rypto
 
         solution.each do |s|
           if s.is_a? Fixnum
-            stack.push s
+            stack.push expr: s, precedence: 3
           else
             b = stack.pop
             a = stack.pop
-            stack.push left: a, op: s, right: b
+            p = {'-' => 1, '+' => 1, '*' => 2, '/' => 2}[s]
+
+            a[:expr] = "(#{a[:expr]})" if a[:precedence] < p
+            b[:expr] = "(#{b[:expr]})" if b[:precedence] <= p
+
+            stack.push expr: '%s %s %s' % [a[:expr], s, b[:expr]], precedence: p
           end
         end
 
-        '%s = %d' % [expr_tree_to_infix(stack.pop), @target]
+        '%s = %d' % [stack.pop[:expr], @target]
       end
     end
 
@@ -41,28 +46,6 @@ module Rypto
     # @private 
     def push(solution)
       @solutions << solution
-    end
-
-    private
-
-    def expr_tree_to_infix(node, parent_node = nil)
-      return node.to_s if node.is_a? Fixnum
-      use_parens = parent_node && op_precedence(parent_node[:op]) > op_precedence(node[:op])
-      '%s%s %s %s%s' % [
-        use_parens ? '(' : nil,
-        expr_tree_to_infix(node[:left], node),
-        node[:op],
-        expr_tree_to_infix(node[:right], node),
-        use_parens ? ')' : nil
-      ]
-    end
-
-    def op_precedence(op)
-      case op
-        when '/', '*' then 2
-        else
-          1
-      end
     end
   end
 end
